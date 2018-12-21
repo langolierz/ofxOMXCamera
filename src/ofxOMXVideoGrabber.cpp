@@ -160,7 +160,10 @@ int ofxOMXVideoGrabber::getFrameRate()
 	return settings.framerate;
 }
 
-
+void ofxOMXVideoGrabber::printSensorModesInfo()
+{
+	PrintSensorModes(engine.camera);
+}
 
 
 #pragma mark RECORDING
