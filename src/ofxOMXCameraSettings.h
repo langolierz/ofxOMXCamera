@@ -27,6 +27,7 @@ public:
 	int sensorWidth;
 	int sensorHeight;
 	int framerate;
+    int sensorMode;
 	
 	bool enableTexture;
 	bool enablePixels;
@@ -106,6 +107,7 @@ public:
         sensorWidth = 1280;
         sensorHeight = 720;
         framerate = 30;
+        sensorMode = 0;
         enableTexture = true;
         enablePixels = false;
         recordingFilePath = "";
@@ -177,6 +179,7 @@ public:
         if(exists(json, "sensorWidth")) sensorWidth = json["sensorWidth"].get<int>();
         if(exists(json, "sensorHeight")) sensorHeight = json["sensorHeight"].get<int>();
         if(exists(json, "framerate")) framerate = json["framerate"].get<int>();
+        if(exists(json, "sensorMode")) sensorMode = json["sensorMode"].get<int>();
         
         if(exists(json, "enableTexture")) enableTexture = json["enableTexture"].get<bool>();
         if(exists(json, "enablePixels")) enablePixels = json["enablePixels"].get<bool>();
@@ -274,6 +277,7 @@ public:
         result["sensorWidth"]=sensorWidth;
         result["sensorHeight"]=sensorHeight;
         result["framerate"]=framerate;
+        result["sensorMode"]=sensorMode;
         result["enableTexture"]=enableTexture;
         result["enablePixels"]=enablePixels;
         result["exposurePreset"]=exposurePreset;
@@ -362,6 +366,7 @@ public:
         info << "sensorWidth " << sensorWidth << endl;
         info << "sensorHeight " << sensorHeight << endl;
         info << "framerate " << framerate << endl;
+        info << "sensorMode " << sensorMode << endl;
         info << "enableTexture " << enableTexture << endl;
         info << "enablePixels " << enablePixels << endl;
         info << "exposurePreset " << exposurePreset << endl;

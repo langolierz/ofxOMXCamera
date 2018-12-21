@@ -166,6 +166,16 @@ bool VideoEngine::setup(ofxOMXCameraSettings* settings_, VideoEngineListener* li
     error = OMX_SetParameter(camera, OMX_IndexParamCameraDeviceNumber, &device);
     OMX_TRACE(error);
     
+    //set the sensor mode if not 0
+    if(settings->sensorMode != 0)
+    {
+        OMX_PARAM_U32TYPE sensorMode;
+        OMX_INIT_STRUCTURE(sensorMode);
+        sensorMode.nPortIndex   = OMX_ALL;
+        sensorMode.nU32         = settings->sensorMode;
+        error = OMX_SetParameter(camera, OMX_IndexParamCameraCustomSensorConfig, &sensorMode);
+        OMX_TRACE(error);
+    }
     
     //Set the resolution
     OMX_PARAM_PORTDEFINITIONTYPE cameraOutputPortDefinition;
