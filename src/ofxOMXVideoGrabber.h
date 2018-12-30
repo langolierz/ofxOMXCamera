@@ -34,7 +34,7 @@ public:
     void draw(ofRectangle&)override;
     int getWidth()override;
     int getHeight()override;
-
+    void printSensorModesInfo();
 
     int getFrameRate();
     bool isFrameNew();
